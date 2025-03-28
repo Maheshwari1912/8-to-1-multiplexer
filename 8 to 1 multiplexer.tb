@@ -1,0 +1,27 @@
+`timescale 1ns / 1ps
+
+module mux1_8tb();
+ reg [2:0] s;
+ reg [7:0] i;
+ wire y;
+ 
+ mux1_8 dut(.y(y),.s(s),.i(i));
+ 
+ initial begin
+ 
+  i=8'b11111111;
+  s=3'b000;
+  #5;
+  i=8'b11010111;
+  s=3'b011;
+  #5;
+  i=8'b10010011;
+  s=3'b001;
+  #5;
+  i=8'b10101010;
+  s=3'b110;
+  #5;
+  $finish;
+ end
+    
+endmodule
